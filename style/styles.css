@@ -1,4 +1,9 @@
 /* ===== БАЗОВЫЕ СТИЛИ ===== */
+
+* {
+    box-sizing: border-box;
+}
+
 body {
  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
  margin: 0;
@@ -188,19 +193,12 @@ main.content {
 
 
 /* ===== КОНТАКТЫ ===== */
-.contacts-section {
-    margin-top: 50px;
+.contacts-container {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-.contacts-text {
-    text-align: center;
-    font-size: 15px;
-    color: #415a73;
-    margin: 0 0 10px 0;
-    font-weight: 600;
-}
-
-.contacts-card {
+.contact-info {
     background: rgb(237, 238, 255);
     padding: 25px;
     margin: 20px 0;
@@ -208,9 +206,22 @@ main.content {
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
 }
 
-.contacts-button {
+.contact-item {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    border-left: 4px solid #667eea;
+}
+
+.contact-item h3 {
+    color: #2c3e50;
+    margin-top: 0;
+}
+
+.contact-button {
     display: block;
-    margin: 0 auto;
+    margin: 40px auto;
     background: linear-gradient(135deg, #969bff, #7a80ff);
     transition: all 0.3s ease;
     border-radius: 16px;
@@ -221,12 +232,133 @@ main.content {
     font-size: 16px;
     border: none;
     cursor: pointer;
+    font-weight: 600;
 }
 
-.contacts-button:hover {
+.contact-button:hover {
     background: linear-gradient(135deg, #7a80ff, #5e65ff);
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(122, 128, 255, 0.3);
+}
+
+.section-title {
+    font-size: 28px;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+/* ===== МОДАЛЬНОЕ ОКНО ===== */
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.6);
+    animation: fadeIn 0.3s ease;
+}
+
+dialog {
+    border: none;
+    border-radius: 12px;
+    padding: 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.3s ease;
+    max-width: 500px;
+    width: 90vw;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 12px 12px 0 0;
+    margin: 0;
+}
+
+.modal-header h2 {
+    margin: 0;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.modal-content {
+    padding: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #e9ecef;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 2rem;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background: #f8f9fa;
+    color: #2c3e50;
+    border: 2px solid #e9ecef;
+}
+
+.btn-secondary:hover {
+    background: #e9ecef;
+}
+
+.required {
+    color: #e74c3c;
 }
 
 /* ===== ТОВАРЫ ===== */
@@ -340,35 +472,74 @@ main.content {
 /* ===== ФУТЕР ===== */
 .footer {
     background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-    /* Темный
-градиентный фон */
     color: white;
-    /* Белый цвет текста */
     text-align: center;
-    /* Выравнивание по центру */
     padding: 30px;
-    /* Внутренние отступы */
-    margin-top: 50px;
-    /* Отступ сверху */
+    margin-top: auto;
 }
 
 /* ===== АДАПТИВНОСТЬ ===== */
 /* Новое: Медиа-запросы для мобильных устройств */
 @media (max-width: 768px) {
- .nav-list {
- flex-direction: column;
- gap: 10px;
- }
+    .nav-list {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .main-content {
+        padding: 20px;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    dialog {
+        margin: 1rem;
+        width: calc(100vw - 2rem);
+    }
 
- .skills-grid {
- grid-template-columns: 1fr;
- }
+    .modal-actions {
+        flex-direction: column;
+    }
 
- .experience-grid {
- grid-template-columns: 1fr;
- }
+    .btn {
+        width: 100%;
+    }
+    
+    .modal-content {
+        padding: 1.5rem;
+    }
+}
 
- main.content {
- padding: 20px;
- }
+@media (max-width: 480px) {
+    .header {
+        padding: 20px;
+        font-size: 24px;
+    }
+    
+    .nav-link {
+        padding: 10px 20px;
+    }
+    
+    .contact-button {
+        padding: 12px 24px;
+        font-size: 14px;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
