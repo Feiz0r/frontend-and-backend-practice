@@ -1,47 +1,55 @@
 <!DOCTYPE html>
-<html lamg="ru">
-
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <base href="/">
-    <title>Семестровая работа</title>
+    <link rel="stylesheet" href="../style/styles.css">
+    <title>Товары - Семестровая работа</title>
 </head>
-
 <body>
-    <div id="header">Хэдер</div>
-    <div id="menu">
-        <ul>
-            <li><a href="index.html">Главная</a></li>
-            <li><a href="pages/news.html">Новости</a></li>
-            <li><a href="pages/practices.html">Практики</a></li>
-            <li><a href="pages/goods.html">Товары</a></li>
-            <li><a href="pages/contacts.html">Контакты</a></li>
-        </ul>
+    <div class="page-container">
+        <header class="header">
+            <h1>Наши товары</h1>
+        </header>
+        
+        <nav class="nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
+                <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
+                <li class="nav-item"><a class="nav-link" href="practices.html">Практики</a></li>
+                <li class="nav-item"><a class="nav-link" href="goods.html">Товары</a></li>
+                <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <section class="goods-section">
+                <h2 class="section-title">Популярные товары</h2>
+                <div class="goods-grid">
+                    <article class="goods-card">
+                        <img src="../images/goods1.png" alt="Товар 1" class="goods-image">
+                        <h3 class="goods-title">Товар 1</h3>
+                        <p class="goods-price">Начальная цена: <a href="#">100000$</a></p>
+                    </article>
+
+                    <article class="goods-card goods-card-main">
+                        <img src="../images/goods2.png" alt="Товар 2" class="goods-image">
+                        <h3 class="goods-title">Товар 2</h3>
+                        <p class="goods-price">Начальная цена: <a href="#">100001$</a></p>
+                    </article>
+
+                    <article class="goods-card">
+                        <img src="../images/goods3.png" alt="Товар 3" class="goods-image">
+                        <h3 class="goods-title">Товар 3</h3>
+                        <p class="goods-price">Начальная цена: <a href="#">100002$</a></p>
+                    </article>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 Семестровая работа. Все права защищены.</p>
+        </footer>
     </div>
-
-    <div id="content">
-        <div>
-            <img src="images/goods1.png" alt="Жээсть">
-            <p>Товар 1</p>
-            <p>Начальная цена 100000$</p>
-        </div>
-
-        <div>
-            <img src="images/goods2.png" alt="Жээсть">
-            <p>Товар 2</p>
-            <p>Начальная цена 100001$</p>
-        </div>
-
-        <div>
-            <img src="images/goods3.png" alt="Жээсть">
-            <p>Товар 3</p>
-            <p>Начальная цена 100002$</p>
-        </div>
-    </div>
-
-
-    <div id="footer">Футер</div>
 </body>
-
 </html>
